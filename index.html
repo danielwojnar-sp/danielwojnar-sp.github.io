@@ -1,32 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
 
 		<title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme" />
 		<script src="plugin/highlight/highlight.js"></script>
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="highlightjs/dracula.css" id="highlight-theme">
+		<link
+			rel="stylesheet"
+			href="highlightjs/dracula.css"
+			id="highlight-theme"
+		/>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Rack</h1>
-					<p class="fragment fade-in-then-out">What is Rack? &#129438</p>
+					<div class="r-fit-text r-stack">
+						<h1 class="fragment">Rack</h1>
+						<p class="fragment fade-in-then-out r-stretch">
+							What is Rack? &#129438;
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<p>
+						Rack provides a minimal, modular, and adaptable interface for
+						developing web applications in Ruby. By wrapping HTTP requests and
+						responses in the simplest way possible, it unifies and distills the
+						API for web servers, web frameworks, and software in between (the
+						so-called middleware) into a single method call
+					</p>
+					<h1 class="fragment">&#129300;</h1>
+				</section>
+
+				<section>
+					<h1>Valid Rack apps are</h1>
+					<div class="fragment fade-in">
+						<pre><code data-trim data-noescape>
+							rack_app = Proc.new do |env|
+							  [200, {"Content-Type" => "text/html"}, ["Voile'a"]]
+							end
+						</code></pre>
+					</div>
+
+					<div class="fragment fade-up">
+						<pre><code data-trim data-noescape>
+							rack_app = -> (env) do
+							  [ 200, { "Content-Type" => "text/plain" }, ["Dumplings!"] ]
+							end
+						</code></pre>
+					</div>
+					<div clas="fragment fade-up">
+						<pre><code data-trim data-noescape>
+							class RackApp
+							  def call(env)
+							    [ 200, { "Content-Type" => "text/plain" }, ["Hello World"] ]
+							  end
+							end
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h3 class="r-fit-text fragment fade-in" data-fragment-index="1">Basically, everything which responds to</h3><code class="fragment" data-fragment-index="2">call</code>
+					<p>and returns an array<pre class="r-stack"><code>[status, headers, body || env]</code></pre></p>
+				</section>
+				<section>
+					<iframe
+						src="https://giphy.com/embed/oYtVHSxngR3lC"
+						width="480"
+						height="347"
+						frameborder="0"
+						class="giphy-embed"
+						allowfullscreen
+					></iframe>
+					<p>
+						<a href="https://giphy.com/gifs/mfw-everything-reddit-oYtVHSxngR3lC"
+							>Simple, yeah?</a
+						>
+					</p>
+				</section>
+				<section>
+					<h2>So... what is</h2><h1 class="fragment highlight-green fade-up"><code>env</code></h1>
+					<h3>Just a hash of useful data</h3>
+				</section>
+				<section>
+					<pre><code data-trim data-noescape class="ruby">
+					</code></pre>
 				</section>
 				<section>Where Rack is used?</section>
 				<section>
-					  <pre><code data-trim data-noescape class="ruby">
+					<pre><code data-trim data-noescape class="ruby">
 						 def foobar
 						 end
-						</code></pre>
+					</code></pre>
 				</section>
 			</div>
 		</div>
@@ -41,9 +118,10 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				width: "100%",
+				height: "100%",
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 			});
 		</script>
 	</body>
