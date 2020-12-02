@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# require 'rack/reloader'
+# require 'pry'
+
 class Application
   def call(_env)
     status = 200
@@ -10,4 +13,5 @@ class Application
   end
 end
 
+# use Rack::Reloader
 run Application.new
