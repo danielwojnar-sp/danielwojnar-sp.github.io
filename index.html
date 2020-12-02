@@ -72,8 +72,8 @@
 					</div>
 				</section>
 				<section>
-					<h3 class="r-fit-text fragment fade-in" data-fragment-index="1">Basically, everything which responds to</h3><code class="fragment" data-fragment-index="2">call</code>
-					<p>and returns an array<pre class="r-stack"><code>[status, headers, body || env]</code></pre></p>
+					<h3>Basically, everything which responds to</h3><h2><code>#call</code></h2>
+					<p>and returns an array<pre class="r-stack"><code>[status, headers, body or env]</code></pre></p>
 				</section>
 				<section>
 					<iframe
@@ -93,9 +93,30 @@
 				<section>
 					<h2>So... what is</h2><h1 class="fragment highlight-green fade-up"><code>env</code></h1>
 					<h3>Just a hash of useful data</h3>
+					<pre><code>
+"SERVER_NAME" => "localhost",
+"SERVER_PORT" => "3000",
+"SERVER_PROTOCOL" => "HTTP/1.1"
+"REQUEST_METHOD" => "GET",
+"HTTP_USER_AGENT" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+...
+					</code></pre>
 				</section>
 				<section>
+					<h4>How we can run this app?</h4>
 					<pre><code data-trim data-noescape class="ruby">
+class Application
+  def call(_env)
+    status = 200
+    headers = { 'Content-Type' => 'text/html' }
+    body = ['Follow The Damn Train, CJ!']
+
+    [status, headers, body]
+  end
+end
+
+run Application.new
+
 					</code></pre>
 				</section>
 				<section>Where Rack is used?</section>
@@ -118,8 +139,6 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-				width: "100%",
-				height: "100%",
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 			});
