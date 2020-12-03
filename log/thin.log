@@ -8,3 +8,8 @@
 2020-12-02 14:01:50 +0100 Thin web server (v1.8.0 codename Possessed Pickle)
 2020-12-02 14:01:50 +0100 Maximum connections set to 1024
 2020-12-02 14:01:50 +0100 Listening on 0.0.0.0:3000, CTRL+C to stop
+2020-12-02 15:20:42 +0100 Writing PID to tmp/pids/thin.pid
+2020-12-02 15:20:42 +0100 Using rack adapter
+2020-12-02 15:20:42 +0100 Thin web server (v1.8.0 codename Possessed Pickle)
+2020-12-02 15:20:42 +0100 Maximum connections set to 1024
+2020-12-02 15:20:42 +0100 Listening on 0.0.0.0:3000, CTRL+C to stop
